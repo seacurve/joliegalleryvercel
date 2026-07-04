@@ -9,7 +9,8 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-const PRIVATE_JOIN_LINK = "https://t.me/+YkyzcXJp0Js4ZmVl"; // ganti sesuai link invite
+const PRIVATE_JOIN_LINK = "https://t.me/+xxxxxxxxxxxx"; // ganti sesuai link invite private
+const FREE_CHANNEL_LINK = "https://t.me/+lR_yKpRL_A4xY2M1"; // link invite free channel
 
 type Post = {
   id: string;
@@ -61,15 +62,16 @@ export default async function GalleryPage() {
           {posts.map((post) => (
             <a
               key={post.id}
-              href={post.is_locked ? PRIVATE_JOIN_LINK : undefined}
-              target={post.is_locked ? "_blank" : undefined}
+              href={post.is_locked ? PRIVATE_JOIN_LINK : FREE_CHANNEL_LINK}
+              target="_blank"
+              rel="noopener"
               style={{
                 position: "relative",
                 aspectRatio: "4/5",
                 display: "block",
                 overflow: "hidden",
                 background: "#161412",
-                cursor: post.is_locked ? "pointer" : "default",
+                cursor: "pointer",
               }}
             >
               {/* teaser_url = blur asli dari server (bukan CSS blur doang, jadi gak bisa di-unblur pakai devtools) */}
