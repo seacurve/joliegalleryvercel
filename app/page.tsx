@@ -75,11 +75,29 @@ export default async function GalleryPage() {
               }}
             >
               {/* teaser_url = blur asli dari server (bukan CSS blur doang, jadi gak bisa di-unblur pakai devtools) */}
-              <img
-                src={post.is_locked ? post.teaser_url ?? "" : post.media_url ?? ""}
-                alt=""
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
+              {post.is_locked ? (
+                <img
+                  src={post.teaser_url ?? ""}
+                  alt=""
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              ) : post.media_type === "video" ? (
+                <video
+                  src={post.media_url ?? ""}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                />
+              ) : (
+                <img
+                  src={post.media_url ?? ""}
+                  alt=""
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              )}
               {post.is_locked && (
                 <div
                   style={{
