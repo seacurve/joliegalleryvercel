@@ -9,7 +9,7 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-const PRIVATE_JOIN_LINK = "https://t.me/+xxxxxxxxxxxx"; // ganti sesuai link invite private
+const PRIVATE_JOIN_LINK = "https://t.me/+YkyzcXJp0Js4ZmVl"; // ganti sesuai link invite private
 const FREE_CHANNEL_LINK = "https://t.me/+lR_yKpRL_A4xY2M1"; // link invite free channel
 
 type Post = {
